@@ -23,20 +23,29 @@ def main():
         # Button to navigate to the information page
         if st.button("Start"):
             st.experimental_rerun()
+def display_questions():
+    st.title("Answer the Questions")
 
-            if get_user_info():
-                print("Please enter your information:")
-                name = input("Name: ")
-                age = input("Age: ")
-                email = input("Email address: ")
-                return name, age, email
+        # Sample questions
+        questions = [
+                "How satisfied are you with the product quality?",
+                "How likely are you to recommend our service to others?",
+                "How easy was it to use our website?"
+            ]
 
-            elif main():
-                name, age, email = get_user_info()
-                print("\nThank you! Here is the information you provided:")
-                print("Name:", name)
-                print("Age:", age)
-                print("Email:", email)
+        # Display questions and collect responses
+        for i, question in enumerate(questions):
+            st.subheader(f"Question {i + 1}: {question}")
+            likert_scale_response = st.slider("", 1, 5, 3, key=f"question_{i + 1}")
+            st.write(f"You rated this question: {likert_scale_response}")
+
+        def main():
+            st.title("Welcome to My Website")
+
+            # Button to lead to new interface
+            if st.button("Start"):
+                display_questions()
+
 
         # Information page
     elif page == "Information":
