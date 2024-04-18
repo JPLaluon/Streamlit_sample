@@ -1,4 +1,15 @@
+import page
+
 import streamlit as st
+
+def main():
+    # Define the sidebar navigation
+    page = st.sidebar.selectbox("Select a page", ["Home", "Information"])
+
+    # Program Proper - Home Page
+    if page == "Home":
+        st.header('Concrete House Maintenance Analyzer')
+        st.write('Click below to start analyzing.')
 
 def main():
     st.title('Concrete House Maintenance Analyzer')
@@ -20,21 +31,26 @@ def display_questions():
 
     # Sample questions
     questions = [
-                    "How satisfied are you with the product quality?",
-                    "How likely are you to recommend our service to others?",
-                    "How easy was it to use our website?"
-                ]
+        "How satisfied are you with the product quality?",
+        "How likely are you to recommend our service to others?",
+        "How easy was it to use our website?"
+    ]
 
     # Display questions and collect responses
+    responses = []
     for i, question in enumerate(questions):
         st.subheader(f"Question {i + 1}: {question}")
-        likert_scale_response = st.slider("", 1, 5, 3, key=f"question_{i + 1}")
-        st.write(f"You rated this question: {likert_scale_response}")
+        likert_scale_response = st.radio("", options=[1, 2, 3, 4, 5], index=2, key=f"question_{i + 1}")
+        responses.append(likert_scale_response)
 
         if likert_scale_response == 1:
             st.write("Yoou belong with me")
         elif likert_scale_response == 3:
             st.write("Hatdog")
+            
+    return responses
+
+
 
 def main():
     st.title("Welcome to My Website")
@@ -42,6 +58,12 @@ def main():
     # Button to lead to new interface
     if st.button("Start"):
         display_questions()
+
+# Information page
+    elif page == "Information":
+        st.header("Information Interface")
+        st.write("This is the information interface.")
+        st.write("New information goes here.")
 
     # Projects section
     st.header('Projects')
