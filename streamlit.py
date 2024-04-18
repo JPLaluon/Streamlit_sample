@@ -33,7 +33,7 @@ def questions():
             st.session_state['response_submitted'] = False
             st.session_state['current_question_changed'] = True
         elif st.button("Change Answers"):
-            st.session_state['current_page'] = 'current_question'
+            st.session_state['current_page'] = 'questions'
     else:
         st.write("All questions answered.")
         st.button("See Results", key="result")
@@ -45,6 +45,8 @@ def result():
     st.write("Your responses:")
     for i, response in enumerate(st.session_state['responses']):
         st.write(f"Question {i+1}: {response}")
+    if st.button("Change Answers"):
+        st.session_state['current_page'] = 'questions'
         if response == 1:
             st.write("HAHAHA")
         elif response == 2:
