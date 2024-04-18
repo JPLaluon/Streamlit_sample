@@ -11,7 +11,6 @@ def main():
         st.header('Concrete House Maintenance Analyzer')
         st.write('Click below to start analyzing.')
 
-def main():
     st.title('Concrete House Maintenance Analyzer')
     st.write('Welcome to Concrete House Maintenance Analyzer! '
              'This program will help you identify the parts of your '
@@ -25,7 +24,8 @@ def main():
     if st.button("Start"):
         st.experimental_rerun()
 
-# Function to display questions with complete Likert scale
+
+# Function to display questions with five-button Likert scale
 def display_questions():
     st.title("Answer the Questions")
 
@@ -47,14 +47,7 @@ def display_questions():
 
 
 def main():
-    st.title('Concrete House Maintenance Analyzer')
-    st.write('Welcome to Concrete House Maintenance Analyzer! '
-             'This program will help you identify the parts of your '
-             'house that either need maintenance or not. If it needs maintenance, '
-             'you will be given numerical scalar measurements for each component of '
-             'the building to guide you through the whole process within this service. '
-             'If not, then an approximation of how long does it take before the next '
-             'maintenance will be provided based on the information that’s been provided.')
+    st.title("Welcome to My Website")
 
     # Button to lead to new interface
     if st.button("Start"):
@@ -65,6 +58,13 @@ def main():
 
         # Rerun only the specific part of the script to keep the interface on the question page
         st.experimental_rerun()
+
+def main():
+    st.title("Welcome to My Website")
+
+    # Button to lead to new interface
+    if st.button("Start"):
+        display_questions()
 
 # Information page
     elif page == "Information":
