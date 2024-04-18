@@ -26,21 +26,21 @@ def main():
 def display_questions():
     st.title("Answer the Questions")
 
-        # Sample questions
-        questions = [
+    # Sample questions
+    questions = [
                 "How satisfied are you with the product quality?",
                 "How likely are you to recommend our service to others?",
                 "How easy was it to use our website?"
             ]
 
-        # Display questions and collect responses
-        for i, question in enumerate(questions):
-            st.subheader(f"Question {i + 1}: {question}")
-            likert_scale_response = st.slider("", 1, 5, 3, key=f"question_{i + 1}")
-            st.write(f"You rated this question: {likert_scale_response}")
+    # Display questions and collect responses
+    for i, question in enumerate(questions):
+        st.subheader(f"Question {i + 1}: {question}")
+        likert_scale_response = st.slider("", 1, 5, 3, key=f"question_{i + 1}")
+        st.write(f"You rated this question: {likert_scale_response}")
 
-        def main():
-            st.title("Welcome to My Website")
+def main():
+    st.title("Welcome to My Website")
 
             # Button to lead to new interface
             if st.button("Start"):
