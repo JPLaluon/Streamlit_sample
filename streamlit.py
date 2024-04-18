@@ -22,8 +22,8 @@ def main():
 
         # Button to navigate to the information page
         if st.button("Start"):
-            st.experimental_rerun()
-            
+            st.experimental_rerun(display_questions())
+
 def display_questions():
     st.title("Answer the Questions")
 
