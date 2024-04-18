@@ -42,9 +42,9 @@ def display_questions():
 def main():
     st.title("Welcome to My Website")
 
-            # Button to lead to new interface
-            if st.button("Start"):
-                display_questions()
+        # Button to lead to new interface
+        if st.button("Start"):
+            display_questions()
 
 
         # Information page
