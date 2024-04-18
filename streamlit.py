@@ -34,6 +34,16 @@ def result():
     st.write("Your responses:")
     for i, response in enumerate(st.session_state['responses']):
         st.write(f"Question {i+1}: {response}")
+        if response == 1:
+            st.write("HAHAHA")
+        elif response == 2:
+            st.write("HEHEHE")
+        elif response == 3:
+            st.write("HIHIHI")
+        elif response == 4:
+            st.write("HOHOHO")
+        elif response == 5:
+            st.write("HUHUHU")
 
 # Main function to control page flow
 def main():
