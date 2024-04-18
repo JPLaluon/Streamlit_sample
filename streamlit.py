@@ -26,29 +26,26 @@ def main():
 
 
 # Function to display questions with five-button Likert scale
-def display_questions():
-    st.sidebar.title("Answer the Questions")
+def display_question(question_number, question):
+    st.title("Answer the Questions")
+    st.subheader(f"Question {question_number}: {question}")
+    return st.radio("", options=[1, 2, 3, 4, 5], index=2, key=f"question_{question_number}")
 
-    # Sample questions
-    questions = [
-        "How satisfied are you with the product quality?",
-        "How likely are you to recommend our service to others?",
-        "How easy was it to use our website?"
-    ]
 
-    # Display questions and collect responses
-    responses = []
-    for i, question in enumerate(questions):
-        responses.append(st.sidebar.radio(f"Question {i + 1}: {question}", options=[1, 2, 3, 4, 5], index=2,
-                                          key=f"question_{i + 1}"))
-
-    return responses
 def main():
     st.title("Welcome to My Website")
 
     # Button to lead to new interface
     if st.button("Start"):
-        responses = display_questions()
+        responses = []
+        questions = [
+            "How satisfied are you with the product quality?",
+            "How likely are you to recommend our service to others?",
+            "How easy was it to use our website?"
+        ]
+        for i, question in enumerate(questions, start=1):
+            response = display_question(i, question)
+            responses.append(response)
         st.write("Your responses:")
         for i, response in enumerate(responses):
             st.write(f"Question {i + 1}: {response}")
