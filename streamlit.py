@@ -24,12 +24,6 @@ if page == "Home":
     if st.button("Start"):
         st.experimental_rerun()
 
-# Information page
-    elif page == "Information":
-        st.header("Information Interface")
-        st.write("This is the information interface.")
-        st.write("New information goes here.")
-
 # Function to display questions with complete Likert scale
 def display_questions():
     st.title("Answer the Questions")
