@@ -1,10 +1,16 @@
 import streamlit as st
 
 def main():
-    st.title('My Portfolio')
-    st.write('Welcome to my portfolio! Here, you can learn more about me and my projects.')
+    st.title('Concrete House Maintenance Analyzer')
+    st.write('Welcome to Concrete House Maintenance Analyzer!'
+             'This program will help you identify the parts of your'
+             'house that either need maintenance or not. If it needs maintenance,'
+             'you will be given numerical scalar measurements for each component of'
+             'the building to guide you through the whole process within this service.'
+             'If not, then an approximation of how long does it take before the next'
+             'maintenance will be provided based on the information that’s been provided.')
 
-    # About Me section
+    # Program Proper
     st.header('About Me')
     st.write('I am a Python developer with a passion for building web applications and data analysis projects.')
     st.write('Feel free to reach out to me at example@email.com.')
