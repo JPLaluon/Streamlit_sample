@@ -13,12 +13,13 @@ def main():
              'maintenance will be provided based on the information that’s been provided.')
 
     # Program Proper - Home Page
-    st.header('Concrete House Maintenance Analyzer')
-    st.write('Click below to start analyzing.')
+    if page == "Home":
+        st.header('Concrete House Maintenance Analyzer')
+        st.write('Click below to start analyzing.')
 
-    # Button to navigate to the information page
-    if st.button("Start"):
-        st.experimental_rerun()
+        # Button to navigate to the information page
+        if st.button("Start"):
+            st.experimental_rerun()
 
         # Information page
     elif page == "Information":
