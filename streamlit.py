@@ -19,10 +19,15 @@ def questions():
     ]
     if st.session_state['current_question'] < len(questions):
         st.subheader(f"Question {st.session_state['current_question'] + 1}: {questions[st.session_state['current_question']]}")
-        response = st.radio("", options=[1, 2, 3, 4, 5], index=2, key=f"question_{st.session_state['current_question']}")
-        st.session_state['responses'].append(response)
+        if 'response_submitted' not in st.session_state:
+            st.session_state['response_submitted'] = False
+        if not st.session_state['response_submitted']:
+            response = st.radio("", options=[1, 2, 3, 4, 5], index=2, key=f"question_{st.session_state['current_question']}")
+            st.session_state['responses'].append(response)
+            st.session_state['response_submitted'] = True
         if st.button("Next"):
             st.session_state['current_question'] += 1
+            st.session_state['response_submitted'] = False
     else:
         st.write("All questions answered.")
         st.button("See Results", key="result")
