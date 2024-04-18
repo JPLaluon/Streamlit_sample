@@ -10,9 +10,9 @@ def main():
              'If not, then an approximation of how long does it take before the next '
              'maintenance will be provided based on the information that’s been provided.')
 
-        # Button to navigate to the information page
-        if st.button("Start"):
-            st.experimental_rerun()
+    # Button to navigate to the information page
+    if st.button("Start"):
+        st.experimental_rerun()
 
 # Function to display questions with complete Likert scale
 def display_questions():
