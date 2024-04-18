@@ -21,15 +21,17 @@ def questions():
     if current_question < len(questions):
         st.subheader(f"Question {current_question + 1}: {questions[current_question]}")
         response_submitted = st.session_state.get('response_submitted', False)
-        if not response_submitted:
+        if not response_submitted or st.session_state.get('current_question_changed', False):
             response = st.radio("", options=[1, 2, 3, 4, 5], index=2, key=f"question_{current_question}")
             st.session_state['responses'].append(response)
             st.session_state['response_submitted'] = True
+            st.session_state['current_question_changed'] = False
         else:
             st.write("You have already submitted a response for this question.")
         if st.button("Next"):
             st.session_state['current_question'] += 1
             st.session_state['response_submitted'] = False
+            st.session_state['current_question_changed'] = True
     else:
         st.write("All questions answered.")
         st.button("See Results", key="result")
@@ -41,6 +43,8 @@ def result():
     st.write("Your responses:")
     for i, response in enumerate(st.session_state['responses']):
         st.write(f"Question {i+1}: {response}")
+    if st.button("Change Answers"):
+        st.session_state['current_page'] = 'questions'
         if response == 1:
             st.write("HAHAHA")
         elif response == 2:
@@ -51,7 +55,7 @@ def result():
             st.write("HOHOHO")
         elif response == 5:
             st.write("HUHUHU")
-            
+
 # Main function to control page flow
 def main():
     if 'current_page' not in st.session_state:
