@@ -25,7 +25,7 @@ def main():
         st.experimental_rerun()
 
 
-# Function to display questions with five-button Likert scale
+# Function to display a single question with five-button Likert scale
 def display_question(question_number, question):
     st.title("Answer the Questions")
     st.subheader(f"Question {question_number}: {question}")
@@ -34,21 +34,27 @@ def display_question(question_number, question):
 
 def main():
     st.title("Welcome to My Website")
+    st.session_state['current_question'] = 0
+    st.session_state['responses'] = []
 
     # Button to lead to new interface
     if st.button("Start"):
-        responses = []
-        questions = [
-            "How satisfied are you with the product quality?",
-            "How likely are you to recommend our service to others?",
-            "How easy was it to use our website?"
-        ]
-        for i, question in enumerate(questions, start=1):
-            response = display_question(i, question)
-            responses.append(response)
-        st.write("Your responses:")
-        for i, response in enumerate(responses):
-            st.write(f"Question {i + 1}: {response}")
+        if st.session_state['current_question'] < len(questions):
+            response = display_question(st.session_state['current_question'] + 1,
+                                        questions[st.session_state['current_question']])
+            st.session_state['responses'].append(response)
+            st.session_state['current_question'] += 1
+
+        if st.session_state['current_question'] == len(questions):
+            st.write("All questions answered. Your responses:")
+            for i, response in enumerate(st.session_state['responses']):
+                st.write(f"Question {i + 1}: {response}")
+        else:
+            if st.button("Next"):
+                response = display_question(st.session_state['current_question'] + 1,
+                                            questions[st.session_state['current_question']])
+                st.session_state['responses'].append(response)
+                st.session_state['current_question'] += 1
 
 # Information page
     elif page == "Information":
