@@ -12,18 +12,22 @@ def main():
              'If not, then an approximation of how long does it take before the next '
              'maintenance will be provided based on the information that’s been provided.')
 
-# Define the sidebar navigation
-page = st.sidebar.selectbox("Select a page", ["Home", "Information"])
+    # Define the sidebar navigation
+    page = st.sidebar.selectbox("Select a page", ["Home", "Information"])
 
-# Program Proper - Home Page
-if page == "Home":
-    st.header('Concrete House Maintenance Analyzer')
-    st.write('Click below to start analyzing.')
+    # Program Proper - Home Page
+    if page == "Home":
+        st.header('Concrete House Maintenance Analyzer')
+        st.write('Click below to start analyzing.')
 
-    # Button to navigate to the information page
-    if st.button("Start"):
-        st.experimental_rerun()
-
+        # Button to navigate to the information page
+        if st.button("Start"):
+            st.experimental_rerun()
+    # Information page
+    elif page == "Information":
+        st.header("Information Interface")
+        st.write("This is the information interface.")
+        st.write("New information goes here.")
 # Function to display questions with complete Likert scale
 def display_questions():
     st.title("Answer the Questions")
@@ -39,11 +43,12 @@ def display_questions():
     for i, question in enumerate(questions):
         st.subheader(f"Question {i + 1}: {question}")
         likert_scale_response = st.slider("",
-                                                  min_value=1,
-                                                  max_value=5,
-                                                  step=1,
-                                                  value=3,
-                                                  key=f"question_{i + 1}")
+                                          min_value=1,
+                                          max_value=5,
+                                          step=1,
+                                          value=3,
+                                          key=f"question_{i + 1}")
+
         st.write(f"You rated this question: {likert_scale_response}")
 
 def main():
@@ -52,12 +57,6 @@ def main():
     # Button to lead to new interface
     if st.button("Start"):
         display_questions()
-
-# Information page
-    elif page == "Information":
-        st.header("Information Interface")
-        st.write("This is the information interface.")
-        st.write("New information goes here.")
 
     # Projects section
     st.header('Projects')
