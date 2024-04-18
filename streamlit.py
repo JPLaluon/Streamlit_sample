@@ -12,6 +12,7 @@ def main():
              'If not, then an approximation of how long does it take before the next '
              'maintenance will be provided based on the information that’s been provided.')
 
+def main():
     # Define the sidebar navigation
     page = st.sidebar.selectbox("Select a page", ["Home", "Information"])
 
@@ -28,6 +29,7 @@ def main():
         st.header("Information Interface")
         st.write("This is the information interface.")
         st.write("New information goes here.")
+        
 # Function to display questions with complete Likert scale
 def display_questions():
     st.title("Answer the Questions")
