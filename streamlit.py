@@ -32,7 +32,7 @@ def questions():
 def result():
     st.title("Survey Results")
     st.write("Your responses:")
-    for i, response in enumerate(st.session_state['responses']):
+    for i, response in enumerate(st.session_state['responses'][:len(questions)]):
         st.write(f"Question {i+1}: {response}")
         if response == 1:
             st.write("HAHAHA")
