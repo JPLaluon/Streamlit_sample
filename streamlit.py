@@ -17,14 +17,16 @@ def questions():
         "How likely are you to recommend our service to others?",
         "How easy was it to use our website?"
     ]
-    if st.session_state['current_question'] < len(questions):
-        st.subheader(f"Question {st.session_state['current_question'] + 1}: {questions[st.session_state['current_question']]}")
-        if 'response_submitted' not in st.session_state:
-            st.session_state['response_submitted'] = False
-        if not st.session_state['response_submitted']:
-            response = st.radio("", options=[1, 2, 3, 4, 5], index=2, key=f"question_{st.session_state['current_question']}")
+    current_question = st.session_state['current_question']
+    if current_question < len(questions):
+        st.subheader(f"Question {current_question + 1}: {questions[current_question]}")
+        response_submitted = st.session_state.get('response_submitted', False)
+        if not response_submitted:
+            response = st.radio("", options=[1, 2, 3, 4, 5], index=2, key=f"question_{current_question}")
             st.session_state['responses'].append(response)
             st.session_state['response_submitted'] = True
+        else:
+            st.write("You have already submitted a response for this question.")
         if st.button("Next"):
             st.session_state['current_question'] += 1
             st.session_state['response_submitted'] = False
@@ -37,7 +39,7 @@ def questions():
 def result():
     st.title("Survey Results")
     st.write("Your responses:")
-    for i, response in enumerate(st.session_state['responses'][:len(questions)]):
+    for i, response in enumerate(st.session_state['responses']):
         st.write(f"Question {i+1}: {response}")
         if response == 1:
             st.write("HAHAHA")
@@ -49,7 +51,7 @@ def result():
             st.write("HOHOHO")
         elif response == 5:
             st.write("HUHUHU")
-
+            
 # Main function to control page flow
 def main():
     if 'current_page' not in st.session_state:
