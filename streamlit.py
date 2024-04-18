@@ -15,15 +15,14 @@ def choose_aspect():
     )
 
     # Next button to move to the next question
-    if st.button("Next"):
-        if aspect_option == 'Ceiling':
-            question_ceiling()
-        elif aspect_option == 'Floor':
-            question_floor()
-        elif aspect_option == 'Roof':
-            question_roof()
-        elif aspect_option == 'Wall':
-            question_wall()
+    if aspect_option == 'Ceiling':
+        question_ceiling()
+    elif aspect_option == 'Floor':
+        question_floor()
+    elif aspect_option == 'Roof':
+        question_roof()
+    elif aspect_option == 'Wall':
+        question_wall()
 
 def question_ceiling():
     st.write("You chose to analyze: Ceiling")
