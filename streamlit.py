@@ -1,3 +1,5 @@
+import page
+
 import streamlit as st
 
 def main():
@@ -13,17 +15,16 @@ def main():
     # Program Proper - Home Page
     st.header('Concrete House Maintenance Analyzer')
     st.write('Click below to start analyzing.')
-    st.write('Feel free to reach out to me at example@email.com.')
 
-        # Button to navigate to the information page
-        if st.button("Start"):
-            st.experimental_rerun()
+    # Button to navigate to the information page
+    if st.button("Start"):
+        st.experimental_rerun()
 
         # Information page
-        elif page == "Information":
-            st.header("Information Interface")
-            st.write("This is the information interface.")
-            st.write("New information goes here.")
+    elif page == "Information":
+        st.header("Information Interface")
+        st.write("This is the information interface.")
+        st.write("New information goes here.")
 
     # Projects section
     st.header('Projects')
