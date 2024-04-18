@@ -23,31 +23,7 @@ def main():
         # Button to navigate to the information page
         if st.button("Start"):
             st.experimental_rerun(display_questions())
-
-def display_questions():
-    st.title("Answer the Questions")
-
-    # Sample questions
-    questions = [
-                "How satisfied are you with the product quality?",
-                "How likely are you to recommend our service to others?",
-                "How easy was it to use our website?"
-            ]
-
-    # Display questions and collect responses
-    for i, question in enumerate(questions):
-        st.subheader(f"Question {i + 1}: {question}")
-        likert_scale_response = st.slider("", 1, 5, 3, key=f"question_{i + 1}")
-        st.write(f"You rated this question: {likert_scale_response}")
-
-
-
-    # Button to lead to new interface
-    if st.button("Start"):
-        display_questions()
-
-
-        # Information page
+# Information page
     elif page == "Information":
         st.header("Information Interface")
         st.write("This is the information interface.")
@@ -70,6 +46,32 @@ def display_questions():
         st.write(project['description'])
         st.write('GitHub: [{}]({})'.format(project['title'], project['github_link']))
         st.write('Demo: [{}]({})'.format(project['title'], project['demo_link']))
+def display_questions():
+    st.title("Answer the Questions")
+
+    # Sample questions
+    questions = [
+                "How satisfied are you with the product quality?",
+                "How likely are you to recommend our service to others?",
+                "How easy was it to use our website?"
+            ]
+
+    # Display questions and collect responses
+    for i, question in enumerate(questions):
+        st.subheader(f"Question {i + 1}: {question}")
+        likert_scale_response = st.slider("", 1, 2, 3, 4, 5, key=f"question_{i + 1}")
+        st.write(f"You rated this question: {likert_scale_response}")
+
+        if likert_scale_response == 1:
+            print("You belong with me")
+        elif likert_scale_response == 2:
+            print("Cruel summer")
+        elif likert_scale_response == 3:
+            print("Lover")
+        elif likert_scale_response == 4:
+            print("All too well")
+        elif likert_scale_response == 5:
+            print("Fearless")
 
 if __name__ == '__main__':
     main()
