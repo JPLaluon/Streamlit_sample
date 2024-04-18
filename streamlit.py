@@ -23,6 +23,7 @@ def main():
         # Button to navigate to the information page
         if st.button("Start"):
             st.experimental_rerun()
+            
 def display_questions():
     st.title("Answer the Questions")
 
@@ -39,12 +40,11 @@ def display_questions():
         likert_scale_response = st.slider("", 1, 5, 3, key=f"question_{i + 1}")
         st.write(f"You rated this question: {likert_scale_response}")
 
-def main():
-    st.title("Welcome to My Website")
 
-        # Button to lead to new interface
-        if st.button("Start"):
-            display_questions()
+
+    # Button to lead to new interface
+    if st.button("Start"):
+        display_questions()
 
 
         # Information page
