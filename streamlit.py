@@ -33,7 +33,7 @@ def questions():
             st.session_state['response_submitted'] = False
             st.session_state['current_question_changed'] = True
         elif st.button("Change Answers"):
-            st.session_state['current_page'] = 'questions'
+            st.session_state['current_page'] = 'current_question'
     else:
         st.write("All questions answered.")
         st.button("See Results", key="result")
