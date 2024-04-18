@@ -24,14 +24,14 @@ def main():
         if st.button("Start"):
             st.experimental_rerun()
 
-            def get_user_info():
+            if get_user_info():
                 print("Please enter your information:")
                 name = input("Name: ")
                 age = input("Age: ")
                 email = input("Email address: ")
                 return name, age, email
 
-            def main():
+            elif main():
                 name, age, email = get_user_info()
                 print("\nThank you! Here is the information you provided:")
                 print("Name:", name)
